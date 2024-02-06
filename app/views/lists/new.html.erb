@@ -1,2 +1,17 @@
-<h1>Lists#new</h1>
-<p>Find me in app/views/lists/new.html.erb</p>
+<h1>新規投稿</h1>
+
+<!--from_with部分(Ruby言語)　%=はHTMLに変換する、%はHTMLに変換しない-->
+<!--@listはコントローラーで定義したインスタンス変数(List.newが格納されている)-->
+<%= form_with model: @list,url: '/lists', method: :post do |f| %>
+  <h4>タイトル</h4>
+  <!--モデルオブジェクト(部品を作成するヘルパー)-->
+  <!--text_field＝単一行のテキストフィールド　:title＝dbのカラムに紐づける-->
+  <%= f.text_field :title %>
+
+  <h4>本文</h4>
+  <!--text_area＝複数行のテキストフィールド　:body＝dbのカラムに紐づける-->
+  <%= f.text_area :body %>
+
+  <!--submit＝送信ボタン　'投稿'＝ボタンに表示させる文字-->
+  <%= f.submit '投稿' %>
+  <% end %>
