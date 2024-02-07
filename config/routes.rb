@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   post 'lists' => 'lists#create'
 
   get 'lists' => 'lists#index'
-  get 'lists/edit'
+
+  get 'lists/:id/edit' => 'lists#edit', as: 'edit_list'
+
   get '/top' => 'homes#top'
 
   #List.find(1) #listsテーブルの中にあるidが1のレコードを取得
