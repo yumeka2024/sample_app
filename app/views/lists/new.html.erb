@@ -12,6 +12,9 @@
   <!--text_area＝複数行のテキストフィールド　:body＝dbのカラムに紐づける-->
   <%= f.text_area :body %>
 
+  <h4>画像</h4>
+  <%= f.file_field :image, accept: "image/*" %>
+
   <!--submit＝送信ボタン　'投稿'＝ボタンに表示させる文字-->
   <%= f.submit '投稿' %>
   <% end %>

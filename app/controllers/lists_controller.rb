@@ -37,7 +37,7 @@ class ListsController < ApplicationController
   #ストロングパラメータ(フォームから送られてきた悪意ある改竄データを選り分ける機能)
   #上記、cleateアクションのインスタンス(list = List.new)に引数として指定している
   def list_params
-    params.require(:list).permit(:title, :body)
+    params.require(:list).permit(:title, :body, :image)
   end
   #list_paramsがアクションとして認識されるとURLで呼び出せてしまう(脆弱性)
   #private以下に記述することでアクションとして認識されなくなり、URLと対応しなくなる
