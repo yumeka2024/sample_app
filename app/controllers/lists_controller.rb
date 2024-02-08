@@ -7,11 +7,14 @@ class ListsController < ApplicationController
   def create
     #フォームに記述された文字を受け取り、インスタンスを作成する
     #フォームから入力されたデータはストロングパラメータで受け取る
-    list = List.new(list_params)
+    @list = List.new(list_params)
     #saveメソッドを実行し、上記データをデータベースに保存する
-    list.save
-    #今保存した投稿データの詳細画面へリダイレクトする
-    redirect_to list_path(list.id)
+    if @list.save
+      #今保存した投稿データの詳細画面へリダイレクトする
+      redirect_to list_path(list.id)
+    else
+      render :new
+    end
   end
 
   def index
