@@ -8,7 +8,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    
+
     <!--外部のwebサイトからフォントを読み込む記述-->
     <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   </head>
@@ -36,6 +36,9 @@
 
     <!--メイン-->
     <main>
+      <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+      <% end %>
 
     <%= yield %>
 

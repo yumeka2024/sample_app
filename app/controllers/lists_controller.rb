@@ -16,7 +16,7 @@ class ListsController < ApplicationController
       redirect_to list_path(@list.id)
     else
       # 保存できなかった場合は、Flashメッセージを下記に定義する
-      flash[:notice] = "投稿に失敗しました。"
+      flash.now[:alert] = "投稿に失敗しました。"
       # URLの末尾を「/new」とする
       render :new
     end
