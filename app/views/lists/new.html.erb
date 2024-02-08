@@ -1,6 +1,13 @@
 <h1>新規投稿</h1>
 
-
+<% if @list.errors.any? %>
+  <%= @list.errors.count %>件のエラーが発生しました
+  <ul>
+    <% @list.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <!--from_with部分(Ruby言語)　%=はHTMLに変換する、%はHTMLに変換しない-->
 <!--@listはコントローラーで定義したインスタンス変数(List.newが格納されている)-->
